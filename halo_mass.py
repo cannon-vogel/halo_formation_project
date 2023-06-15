@@ -26,7 +26,7 @@ for i in range(len(z)):
 plt.legend()
 plt.savefig("./mass_func_plots/z5_z10_haloMassFunc.png")
 
-
+'''
 # now use truncated power spectrum to generate halo mass function
 # to give massFunction() the P(k) we want to use, we use ps_args to pass the path of
 # the power spectrum to the matterPowerSpectrum() function
@@ -42,6 +42,7 @@ plt.ylim(1E-7,1E3)
 plt.legend()
 plt.show()
 
+# testing stuff to see if I can get the power spectrum read from the files bc above code isn't working
 from colossus.utils import utilities
 
 file_path = '/Users/alexstewart/Documents/GitHub/halo_formation_project/axino2keV06_pk.dat'
@@ -58,3 +59,15 @@ plt.xlabel('k(h / Mpc)')
 plt.ylabel('P(k)')
 plt.plot(k_table, P_table, '-')
 plt.show()
+
+# just open the power spectrum and see if I can read it
+import csv
+with open('/Users/alexstewart/Documents/GitHub/halo_formation_project/axino2keV06_pk.dat') as f:
+    kData = [line.split()[0] for line in f]
+
+with open('/Users/alexstewart/Documents/GitHub/halo_formation_project/axino2keV06_pk.dat') as g:
+    PData = [line.split()[1] for line in g]
+    
+print(kData[4:])
+print(PData[4:])
+'''
